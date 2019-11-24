@@ -8,8 +8,15 @@ import java.text.SimpleDateFormat
 import java.util.logging.SimpleFormatter
 
 class Shops {
-    fun response(shopsMapper: ShopsMapper):Response{
+    fun all(shopsMapper: ShopsMapper):Response{
         val shops:Array<Shop> = shopsMapper.findShops()
+        for (shop in shops){
+            shop.create_time = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(shop.create_time)
+        }
+        return Response(200,"Request:ok",shops)
+    }
+    fun byName(shopsMapper: ShopsMapper,name:String):Response{
+        val shops:Array<Shop> = shopsMapper.findShopsByName(name)
         for (shop in shops){
             shop.create_time = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(shop.create_time)
         }
