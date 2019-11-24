@@ -1,4 +1,4 @@
-package xyz.omnia96.mall.paltfrom.model
+package xyz.omnia96.mall.global_model
 
 import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
